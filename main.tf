@@ -12,8 +12,9 @@ resource "azurerm_virtual_network" "vNet-1" {
   
 resource "azurerm_subnet" "subnet-1" {
     name = var.subnet_name
+    resource_group_name = azurerm_resource_group.rg-1.name
     virtual_network_name = azurerm_virtual_network.vNet-1.name
-    address_prefixes = "10.0.1.0/24"
+    address_prefixes = ["10.0.1.0/24"]
 }
 
 resource "azurerm_public_ip" "public_ip" {
@@ -29,7 +30,7 @@ resource "azurerm_network_interface" "NIC-1" {
   location = azurerm_resource_group.rg-1.location
   ip_configuration {
     name = "internal"
-    subnet_id = azurem_subnet.subnet-1.id
+    subnet_id = azurerm_subnet.subnet-1.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.public_ip.id
   }
