@@ -45,7 +45,7 @@ resource "azurerm_virtual_machine" "vm-1" {
   
   os_profile {
     computer_name = "hostname"
-    admini_username = "adminuser"
+    admin_username = "adminuser"
     admin_password = "Sa0Fdtgj@1admin"
   }
   
@@ -57,7 +57,7 @@ resource "azurerm_virtual_machine" "vm-1" {
     name = var.os_disk_name
     caching = "ReadWrite"
     create_option = "FromImage"
-    manged_disk_type = "Standard_LRS"
+    managed_disk_type = "Standard_LRS"
   }
   
   storage_image_reference {
