@@ -10,8 +10,8 @@ variable "vNet_name" {
   type = string 
 }
 
-variable "subnet_name"
-type = string 
+variable "subnet_name" {
+  type = string
 }
 
 variable "pulic_ip_name" {
