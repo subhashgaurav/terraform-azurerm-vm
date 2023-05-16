@@ -10,7 +10,7 @@ resource "azurerm_virtual_network" "vNet-1" {
   address_sapce = ["10.0.0.0/16"]
 }
   
-resouce "azurerm_subnet" "subnet-1" {
+resource "azurerm_subnet" "subnet-1" {
     name = var.subnet_name
     virtual_network_name = azurerm_virtual_network.vNet-1.name
     address_prefixes = "10.0.1.0/24"
