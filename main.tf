@@ -7,7 +7,7 @@ resource "azurerm_virtual_network" "vNet-1" {
   name = var.vNet_name
   resource_group_name = azurerm_resource_group.rg-1.name
   location = azurerm_resource_group.rg-1.location 
-  address_sapce = ["10.0.0.0/16"]
+  address_space = ["10.0.0.0/16"]
 }
   
 resource "azurerm_subnet" "subnet-1" {
@@ -18,7 +18,7 @@ resource "azurerm_subnet" "subnet-1" {
 
 resource "azurerm_public_ip" "public_ip" {
   name = var.pulic_ip_name
-  resource_group_name = azurerm_resource_name.rg-1.name
+  resource_group_name = azurerm_resource_group.rg-1.name
   location = azurerm_resource_group.rg-1.location 
   allocation_method = "Dynamic"
 }
